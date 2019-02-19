@@ -1,0 +1,150 @@
+blockquote,
+body,
+button,
+caption,
+dd,
+dl,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+legend,
+ol,
+p,
+pre,
+select,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  vertical-align: middle;
+  font-size: 100%;
+  outline: 0;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+th {
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+li {
+  list-style: none;
+}
+
+table {
+  border-spacing: 0;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+address,
+cite,
+dfn,
+em,
+i,
+var {
+  font-style: normal;
+}
+
+code,
+dfn,
+kbd,
+pre,
+samp,
+tt,
+var {
+  font-family: monospace;
+}
+
+del,
+ins,
+s {
+  text-decoration: none;
+}
+
+small {
+  font-size: 100%;
+}
+
+q:before {
+  content: "";
+}
+
+q:after {
+  content: "";
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  height: 60px;
+}
+
+.router-link-active {
+  color: red;
+}
+
+.router-link-active i {
+  color: red;
+}
