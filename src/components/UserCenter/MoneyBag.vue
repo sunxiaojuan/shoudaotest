@@ -7,7 +7,7 @@
         <!-- <a href="javascript:;" @click="getMoney()">提现</a> -->
       </div>
       <div class="bargList">
-    <p class="name">交易记录查看</p>
+    <p class="name">交易记录查看2222</p>
     <ul>
       <li>
         <p>{{title}}<span>{{price}}</span></p>

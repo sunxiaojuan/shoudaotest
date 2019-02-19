@@ -8,15 +8,15 @@
       <ul>
         <li>
           <router-link to="/moneybag"><i class="icon iconfont icon-icon-home"></i>
-          我的钱包</router-link>
+          我的钱包222</router-link>
           
         </li>
         <li>
            <router-link to="/aboutsd"><i class="icon iconfont icon-kuaisukaidian"></i>
-          关于收稻</router-link>
+          关于收稻22</router-link>
         </li>
         <li @click="goMoney()">
-          js跳转路由
+          js跳转路由22
         </li>
       </ul>
     <router-view></router-view>
