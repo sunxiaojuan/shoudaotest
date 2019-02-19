@@ -7,7 +7,7 @@
         <!-- <a href="javascript:;" @click="getMoney()">提现</a> -->
       </div>
       <div class="bargList">
-    <p class="name">近半年交易记录最新的</p>
+    <p class="name">近半年交易记录20192200</p>
     <ul>
       <li>
         <p>{{title}}<span>{{price}}</span></p>
