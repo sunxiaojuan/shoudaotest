@@ -26,6 +26,7 @@ export default {
   height: 1rem;
   border-top: 1px solid #e7e7e7;
   background: #fff;
+  z-index: 10;
   a {
     display: block;
     width: 33%;

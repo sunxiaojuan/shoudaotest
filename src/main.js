@@ -7,16 +7,11 @@ import ElementUI from 'element-ui'
 import './assets/iconfont.css'
 import '../config/rem'
 import './assets/css/common.css'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
-import {
-  swiper,
-  swiperSlide
-} from 'vue-awesome-swiper'
+import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.config.productionTip = false
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
-Vue.use(VueAwesomeSwiper);
 Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
