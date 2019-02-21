@@ -25,6 +25,7 @@ export default {
   width: 100%;
   height: 1rem;
   border-top: 1px solid #e7e7e7;
+  background: #fff;
   a {
     display: block;
     width: 33%;

@@ -21,32 +21,44 @@
             <a href="javascript:;">需求大厅</a>
           </div>
         </li>
-        <li class="item-cell">
-          <p>市场调查类<span>&yen;2019</span></p>
+        <li class="item-cell" v-for="item in list.list_a">
+          <p>{{item.Title}}<span>&yen;{{item.PreTaxMoney}}</span></p>
         </li>
-         <li class="item-cell">
-          <p>市场调查类<span>&yen;2019</span></p>
+        <li>
+          <div>
+            <p>技术开发</p>
+            <div><span>公关策划</span><span>活动策划</span></div>
+            <div><span>公关策划</span><span>活动策划</span></div>
+            <a href="javascript:;">需求大厅</a>
+          </div>
+          <img src="https://www.shoudaozi.com//Content/appless/img/demand-1.png" alt="">
         </li>
-         <li class="item-cell">
-          <p>市场调查类<span>&yen;2019</span></p>
-        </li>
-         <li class="item-cell">
-          <p>市场调查类<span>&yen;2019</span></p>
+        <li class="item-cell" v-for="item in list.list_b">
+          <p>{{item.Title}}<span>&yen;{{item.PreTaxMoney}}</span></p>
         </li>
       </ul>
-      
     </div>
   </div>
 </template>
 
 <script>
+import "swiper/dist/css/swiper.css";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+
+// import carousel1 from "../img/banner.jpg";
+// import carousel2 from "../img/mybg.jpg";
+
 export default {
-  name: "",
+  name: "Carousel",
   data() {
     return {
       num_a: 0,
       num_b: 0,
-      num_c: 0
+      num_c: 0,
+      list: {
+        list_a: ["111"],
+        list_b: ["222"]
+      }
     };
   },
   methods: {
@@ -60,18 +72,21 @@ export default {
         error => {}
       );
     },
-    getList() {
+    getList(cate, fn) {
       this.$http
         .post(
           "https://www.shoudaozi.com/App/Home/GetListByCate",
           {
-            Cate: "5046,5032,5038,5033,5040,5045,5039,5249"
+            Cate: cate
           },
           { emulateJSON: true }
         )
         .then(
           res => {
-            console.log(res);
+            let newDate = res.body;
+            if (newDate.status == "y") {
+              fn(res.body.rows);
+            }
           },
           error => {}
         );
@@ -79,7 +94,12 @@ export default {
   },
   mounted() {
     this.getPerNum();
-    this.getList();
+    this.getList("5046,5032,5038,5033,5040,5045,5039,5249", row => {
+      this.list.list_a = row;
+    });
+    this.getList("5030,5036,5037,5043", row => {
+      this.list.list_b = row;
+    });
   }
 };
 </script>
@@ -112,6 +132,9 @@ export default {
 }
 .content_center {
   padding: 0 0.3rem;
+  ul {
+    padding-bottom: 0.45rem;
+  }
   li {
     display: flex;
     padding: 0.2rem 0;
