@@ -8,11 +8,13 @@ import './assets/iconfont.css'
 import '../config/rem'
 import './assets/css/common.css'
 import 'element-ui/lib/theme-chalk/index.css';
-
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 Vue.config.productionTip = false
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
 Vue.use(ElementUI);
+Vue.use(MintUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
