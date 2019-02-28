@@ -9,7 +9,10 @@ import '../config/rem'
 import './assets/css/common.css'
 import 'element-ui/lib/theme-chalk/index.css';
 import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style.css';
+import axios from 'axios'
+import './mock/mock.js'
+
 Vue.config.productionTip = false
 import VueResource from 'vue-resource'
 Vue.use(VueResource);

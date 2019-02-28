@@ -176,13 +176,11 @@ export default {
     },
 
     infinite() {
-      console.log(1231);
       this.infiniteLoading = true;
       this.onInfinite(this.infiniteDone);
     },
 
     infiniteDone() {
-      console.log(14444);
       this.infiniteLoading = false;
     },
 

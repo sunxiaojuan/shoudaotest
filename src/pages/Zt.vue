@@ -1,33 +1,25 @@
 <template>
   <div class="zt">
      <section class="hot_questions">
-       <v-scroll style="top: 0" ref="pagelist"  :on-refresh="initData"  :on-infinite="loaderMore"  :enable-infinite="touchend"> 
             <mt-navbar v-model="selected">
               <mt-tab-item id="1">选项一</mt-tab-item>
               <mt-tab-item id="2">选项二</mt-tab-item>
               <mt-tab-item id="3">选项三</mt-tab-item>
             </mt-navbar>
+            <v-scroll style="top: 1rem" ref="pagelist"  :on-refresh="initData"  :on-infinite="loaderMore"  :enable-infinite="touchend"> 
              <mt-tab-container v-model="selected">
                 <mt-tab-container-item :id="item+''" v-for="item in 3" :key="item + 'a'">
                   <ul class="order_list_ul">
-                    <li>
-                      <img src="http://img.shoudaozi.com:8888/gxpt/Xq/20180930/20180930092202968044.jpg" alt="">
+                    <li v-for="(item,index) in dataShow">
+                      <img :src=item.thumbnail_pic_s alt="">
                       <div class="content">
-                        <h5>PCC专业教练</h5>
-                        <p>杨莉珺</p>
-                        <p>国际教练协会认证高级教练</p>
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.author_name}}</p>
+                        <p>{{item.date}}</p>
                       </div>
                     </li>
-                     <li>
-                      <img src="http://img.shoudaozi.com:8888/gxpt/Xq/20180930/20180930092202968044.jpg" alt="">
-                      <div class="content">
-                        <h5>PCC专业教练</h5>
-                        <p>杨莉珺</p>
-                        <p>国际教练协会认证高级教练</p>
-                      </div>
-                    </li>
+                    <p v-if="show" class="empty_data">没有更多了</p>
                   </ul>
-                  <mt-cell v-for="(item, index) in 10" :title="'内容 ' + item" :key="index" />
                 </mt-tab-container-item>
               </mt-tab-container>
        </v-scroll>
@@ -42,43 +34,90 @@ export default {
     return {
       touchend: true, //是否允许滑动
       selected: "1",
-      allLoaded: false
+      allLoaded: false,
+      dataShow: [],
+      PageIndex: 1,
+      show: false //显示更多
     };
   },
   methods: {
-    initData() {
+    async initData(cb) {
+      this.show = false; //显示更多
+      this.allLoaded = false;
+      this.touchend = true;
+      this.dataShow = [];
+      this.PageIndex = 1;
       this.$http
         .post(
-          "https://www.shoudaozi.com/Service/ServiceListPartial",
+          "/news",
           {
-            PageIndex: "1",
-            pageSize: "8",
-            type: "0",
-            userid: "f4bae46c-52f4-44a8-b170-774711530821"
+            PageIndex: 1
           },
           { emulateJSON: true }
         )
-        .then(
-          res => {
-            let newDate = res.body;
-            if (newDate.status == "y") {
-              console.log(newDate);
-            }
-          },
-          error => {}
-        );
+        .then(res => {
+          this.dataShow = res.data.data;
+          if (res.body.data.length < 10) {
+            this.touchend = false;
+          }
+          if (!this.touchend) {
+            this.show = true;
+          }
+          cb && cb();
+        });
     },
-    async loaderMore(ab) {}
+    async loaderMore(ab) {
+      if (!this.touchend) {
+        return;
+      }
+      this.PageIndex++;
+      if (this.PageIndex > 3) {
+        this.show = true;
+        this.touchend = false;
+        return;
+      }
+      this.getdata(this.PageIndex);
+      ab && ab();
+    },
+    async getdata(PageIndex) {
+      this.$http
+        .post(
+          "/news",
+          {
+            PageIndex: PageIndex
+          },
+          { emulateJSON: true }
+        )
+        .then(res => {
+          if (PageIndex > 1) {
+            this.dataShow = this.dataShow.concat(res.body.data);
+          } else {
+            this.dataShow = res.data.data;
+          }
+          if (res.body.data.length < 10) {
+            this.touchend = false;
+          }
+          if (!this.touchend) {
+            this.show = true;
+          }
+        });
+    }
   },
-  mounted() {
-    this.initData();
+  created() {
+    this.getdata(this.PageIndex);
   },
+  mounted() {},
   components: {
     VScroll
   }
 };
 </script>
 <style lang="scss" scoped>
+.empty_data {
+  text-align: center;
+  font-size: 0.24rem;
+  line-height: 1rem;
+}
 .order_list_ul {
   li {
     display: flex;
