@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router';
 import Home from '@/pages/Home'
 import Zt from '@/pages/Zt'
+import Ztinfo from '@/pages/Ztinfo'
 import AboutSd from '@/pages/UserCenter/AboutSd';
 import MoneyBag from '@/pages/UserCenter/MoneyBag';
 import UserCenter from '@/pages/UserCenter';
@@ -34,7 +35,11 @@ export default new Router({
       path: '/getMoney',
       name: 'GetMoney',
       component: GetMoney
+    },
+    {
+      path: '/ztinfo',
+      name: 'Ztinfo',
+      component: Ztinfo
     }
-
   ]
 })

@@ -21,9 +21,11 @@
       </ul>
     <router-view></router-view>
     </div>
+     <Footbottom></Footbottom>
   </div>
 </template>
 <script>
+import Footbottom from "../components/Footbottom";
 export default {
   name: "HelloWorld",
   data() {
@@ -50,6 +52,9 @@ export default {
   },
   mounted() {
     this.getHeaddata();
+  },
+  components: {
+    Footbottom
   }
 };
 </script>

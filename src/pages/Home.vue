@@ -1,12 +1,11 @@
 <template>
   <div class="home">
-  
     <div class="topHead">
-     <el-carousel height="150px" indicator-position="none">
-      <el-carousel-item v-for="item in imgList" :key="item.index">
-        <img :src="item.pic" alt="" class="setImg">
-      </el-carousel-item>
-    </el-carousel>
+      <el-carousel height="150px" indicator-position="none">
+        <el-carousel-item v-for="item in imgList" :key="item.index">
+          <img :src="item.pic" alt="" class="setImg">
+        </el-carousel-item>
+      </el-carousel>
       <div id="statistics">
         <div class="num_area">
           <p><i>{{num_a}}位</i><br><span>认证智客</span></p>
@@ -57,12 +56,14 @@
         </li>
       </ol>
     </div>
+    <Footbottom></Footbottom>
   </div>
 </template>
 
 <script>
+import Footbottom from "../components/Footbottom";
 export default {
-  name: "Carousel",
+  name: "Home",
   data() {
     return {
       num_a: 0,
@@ -75,6 +76,9 @@ export default {
       starList: [],
       imgList: []
     };
+  },
+  components: {
+    Footbottom
   },
   methods: {
     getPerNum() {
