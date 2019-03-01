@@ -10,7 +10,7 @@
              <mt-tab-container v-model="selected">
                 <mt-tab-container-item :id="item" v-for="item in cateList" :key="item + 'a'">
                   <ul class="order_list_ul">
-                    <li v-for="(item,index) in dataShow" @click="toDetail(item.ID)">
+                    <li v-for="(item,index) in dataShow" @click="toDetail(item)">
                       <h4>{{item.CateName}}</h4>
                       <p>{{item.CreatedUserName}}</p>
                       <div>报名截止时间：{{item.RegDeadlineTime}}</div>
@@ -40,11 +40,12 @@ export default {
     };
   },
   methods: {
-    toDetail(id) {
+    toDetail(item) {
       this.$router.push({
         name: "Ztinfo",
-        params: { id: id }
+        params: { id: item.ID, title: item.Title }
       });
+      localStorage.setItem("selected", this.selected);
     },
     async initData(cb) {
       this.show = false; //显示更多
@@ -101,6 +102,10 @@ export default {
     }
   },
   mounted() {
+    this.selected =
+      localStorage.getItem("selected") == "underfined"
+        ? ""
+        : localStorage.getItem("selected");
     this.initData();
   },
   components: {
