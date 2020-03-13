@@ -8,12 +8,12 @@
       <ul>
         <li>
           <router-link to="/moneybag"><i class="icon iconfont icon-icon-home"></i>
-          我的钱包222</router-link>
+          我的钱包222这个也是修改的</router-link>
           
         </li>
         <li>
            <router-link to="/aboutsd"><i class="icon iconfont icon-kuaisukaidian"></i>
-          关于收稻22</router-link>
+          关于收稻22我是修改的bug</router-link>
         </li>
         <li @click="goMoney()">
           js跳转路由22
