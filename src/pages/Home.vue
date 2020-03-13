@@ -8,7 +8,7 @@
       </el-carousel>
       <div id="statistics">
         <div class="num_area">
-          <p><i>{{num_a}}位</i><br><span>认证智客</span></p>
+          <p><i>{{num_a}}位这个是修复的bug</i><br><span>认证智客</span></p>
           <p><i>{{num_b}}位</i><br><span>认证智客</span></p>
           <p><i>{{num_c}}位</i><br><span>认证智客</span></p>
         </div>
