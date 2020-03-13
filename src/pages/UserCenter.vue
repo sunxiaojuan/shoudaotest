@@ -8,7 +8,7 @@
       <ul>
         <li>
           <router-link to="/moneybag"><i class="icon iconfont icon-icon-home"></i>
-          我的钱包222</router-link>
+          我的钱包222这是暂存的修改</router-link>
           
         </li>
         <li>
