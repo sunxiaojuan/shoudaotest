@@ -8,7 +8,7 @@
       </el-carousel>
       <div id="statistics">
         <div class="num_area">
-          <p><i>{{num_a}}位</i><br><span>认证智客</span></p>
+          <p><i>{{num_a}}位2222222</i><br><span>认证智客ssss</span></p>
           <p><i>{{num_b}}位</i><br><span>认证智客</span></p>
           <p><i>{{num_c}}位</i><br><span>认证智客</span></p>
         </div>
@@ -25,9 +25,6 @@
             <a href="javascript:;">需求大厅</a>
           </div>
         </li>
-        <li class="item-cell" v-for="item in list.list_a">
-          <p>{{item.Title}}<span>&yen;{{item.PreTaxMoney}}</span></p>
-        </li>
         <li>
           <div>
             <p>技术开发</p>
@@ -37,24 +34,13 @@
           </div>
           <img src="https://www.shoudaozi.com//Content/appless/img/demand-1.png" alt="">
         </li>
-        <li class="item-cell" v-for="item in list.list_b">
-          <p>{{item.Title}}<span>&yen;{{item.PreTaxMoney}}</span></p>
-        </li>
+       
       </ul>
       <div class="title-line">
         <span>为您推荐</span>
-        <a href="javascript:;">更多智客</a>
+        <a href="javascript:;">更多智客4444</a>
       </div>
-      <ol>
-        <li v-for="item in starList">
-          <img :src=item.Pic alt="">
-          <div>
-            <h3>{{item.TrueName}}</h3>
-            <p>{{item.PrimarySkill}}</p>
-            <p>{{item.SecondSkill}}</p>
-          </div>
-        </li>
-      </ol>
+     
     </div>
     <Footbottom></Footbottom>
   </div>
